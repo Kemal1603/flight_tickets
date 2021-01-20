@@ -1,11 +1,11 @@
 # ---------------------------- IMPORTED MODULES ------------------------------- #
 import requests
 import datetime
-import  os
+import os
 # ---------------------------- CONSTANTS------------------------------- #
 FLY_FROM_IATA_CODE = "MSQ"
 # ---------------------------- SHEET API ------------------------------- #
-sheet_api_url = "https://api.sheety.co/c1941eafc77ece7d14cdfcb3121fd0c9/flightDeals/prices"
+sheet_api_url = os.environ.get('SHEETI_API_URL')
 response_from_sheet = requests.get(url=sheet_api_url)
 cities_details = response_from_sheet.json()["prices"]
 iata_codes = ''
