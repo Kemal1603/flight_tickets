@@ -1,7 +1,7 @@
 # ---------------------------- IMPORTED MODULES ------------------------------- #
 import requests
 import datetime
-
+import  os
 # ---------------------------- CONSTANTS------------------------------- #
 FLY_FROM_IATA_CODE = "MSQ"
 # ---------------------------- SHEET API ------------------------------- #
@@ -17,7 +17,7 @@ today = datetime.datetime.now().strftime("%d/%m/%Y")
 six_month = datetime.datetime.now().today() + datetime.timedelta(6 * 30)
 six_month = six_month.strftime("%d/%m/%Y")
 tickets_search_api_header = {
-	"apikey": "_dlEv4_CHzrPQpacYiuWQmw4UpZGYY4A"
+	"apikey": os.environ.get('TEQUILA_API_KEY')
 }
 
 tickets_search_api_respond = requests.get(url=f"https://tequila-api.kiwi.com/v2/search?"
